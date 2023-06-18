@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     environment:
       - DATABASE_URL=postgres://postgres:secretpw@postgres:5435/botpress_db
-      - EXTERNAL_URL=https://$PLACE_HOLDER_DOMAIN_NAME
+      - EXTERNAL_URL=https://botpress.crmpolitico.com.br
     depends_on:
       - postgres
     volumes:

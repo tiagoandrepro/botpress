@@ -3,6 +3,8 @@ version: '3'
 services:
   botpress:
     image: botpress/server
+    networks:
+      - nginx_network 
     expose:
       - 3000
     ports:
@@ -17,6 +19,8 @@ services:
 
   postgres:
     image: postgres:11.2-alpine
+    networks:
+      - nginx_network 
     expose:
       - 5435
     environment:
@@ -30,6 +34,8 @@ services:
   nginx:
     image: jonasal/nginx-certbot:latest
     restart: unless-stopped
+    networks:
+      - nginx_network 
     environment:
       - CERTBOT_EMAIL=thiago_andre@live.com
     ports:
@@ -42,3 +48,7 @@ services:
 volumes:
   pgdata:
   nginx_secrets:
+  
+networks:
+  nginx_network:
+    external: true

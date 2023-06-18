@@ -31,7 +31,7 @@ services:
     image: jonasal/nginx-certbot:latest
     restart: unless-stopped
     environment:
-      - CERTBOT_EMAIL=YOUR_EMAIL@DOMAINE.COM
+      - CERTBOT_EMAIL=thiago_andre@live.com
     ports:
       - 80:80
       - 443:443
